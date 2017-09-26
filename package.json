@@ -1,0 +1,23 @@
+{
+  "name": "supermario",
+  "version": "1.0.0",
+  "description": "Super Mario with Javascript",
+  "main": "index.js",
+  "scripts": {
+    "start": "serve ./public",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andyreesecups/Super-Mario.git"
+  },
+  "author": "Andrew Reese",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/andyreesecups/Super-Mario/issues"
+  },
+  "homepage": "https://github.com/andyreesecups/Super-Mario#readme",
+  "dependencies": {
+    "serve": "^6.1.0"
+  }
+}
