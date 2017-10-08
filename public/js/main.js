@@ -25,11 +25,14 @@ function loadBackgroundSprites() {
 const canvas = document.getElementById('screen');
 const context = canvas.getContext('2d');
 
-	loadLevel('1-1')
-	.then(level => {
-		console.log('Level loaded', level);
+Promise.all([
+	loadBackgroundSprites(),
+	loadLevel('1-1'),
+])
+.then(([sprites, level]) => {
+	console.log('Level loaded', level);
 		level.backgrounds.forEach(background => {
 		drawBackground(background, context, sprites);
-		});
 	});
 });
+	
