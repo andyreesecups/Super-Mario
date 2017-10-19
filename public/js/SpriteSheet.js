@@ -22,7 +22,7 @@ export default class SpriteSheet {
 				0,
 				width,
 				height);
-			this.tiles.set(name, buffer);
+			this.tiles.set(name, buffer)	
 	}
 
 	defineTile(name, x, y) {
