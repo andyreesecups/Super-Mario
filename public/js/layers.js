@@ -28,7 +28,7 @@ export function createCollisionLayer(level) {
 
 	const getByIndexOriginal = tileResolver.getByIndex;
 	tileResolver.getByIndex = function getByIndexFake(x, y) {
-
+		console.log(x, y);
 		return getByIndexOriginal.call(tileResolver, x, y);
 	}
 }
