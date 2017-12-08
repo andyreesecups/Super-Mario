@@ -3,19 +3,27 @@ import TileCollider from './TileCollider.js';
 import {Matrix} from './math.js';
 
 export default class Level {
-	constructor() {
-		this.comp = new Compositer();
-		this.entities = new Set();
-		this.tiles = new Matrix();
+    constructor() {
+        this.gravity = 2000;
 
-		this.tileCollider = new TileCollider(this.tiles);
-	}
+        this.comp = new Compositer();
+        this.entities = new Set();
+        this.tiles = new Matrix();
 
-	update(deltaTime) {
-		this.entities.forEach(entity => {
-			entity.update(deltaTime);
+        this.tileCollider = new TileCollider(this.tiles);
+    }
 
-			this.tileCollider.test(entity);
-		});
-	}
+    update(deltaTime) {
+        this.entities.forEach(entity => {
+            entity.update(deltaTime);
+
+            entity.pos.x += entity.vel.x * deltaTime;
+            this.tileCollider.checkX(entity);
+
+            entity.pos.y += entity.vel.y * deltaTime;
+            this.tileCollider.checkY(entity);
+
+            entity.vel.y += this.gravity * deltaTime;
+        });
+    }
 }
